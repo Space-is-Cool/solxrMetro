@@ -5,7 +5,7 @@
  * @format
  */
 
-const { getDefaultConfig } = require("metro-config");
+const { getDefaultConfig } = require('metro-config');
 
 module.exports = (async () => {
   const {
@@ -22,7 +22,7 @@ module.exports = (async () => {
       }),
     },
     resolver: {
-      assetExts: [...assetExts, "obj", "mtl", "JPG", "vrx", "hdr", "gltf", "glb", "bin", "arobject", "gif", "tiff"]
+      assetExts: [...assetExts, 'obj', 'mtl', 'JPG', 'vrx', 'hdr', 'gltf', 'glb', 'bin', 'arobject', 'gif', 'tiff']
     }
-  }
+  };
 })();

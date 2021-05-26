@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-children-prop */
 import React, { useState, useEffect } from 'react';
+import { Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import {IotdContext, MusicContext, FontContext, MusicChoiceContext } from './Context';
@@ -27,7 +28,8 @@ const RootNavigator = () => {
   }, []);
 
   const getNasa = () => {
-    axios.get(`https://api.nasa.gov/planetary/apod?api_key=${NASA_KEY}`)
+    // axios.get(`https://api.nasa.gov/planetary/apod?api_key=${NASA_KEY}`)
+    axios.get('https://api.nasa.gov/planetary/apod?api_key=gZClpAd2dIP9dwXkbP5wMsqVMfT1ek5YMnEo7kep')
       .then(({data}) => {
         setIoTD(data);
       });
@@ -60,4 +62,27 @@ const RootNavigator = () => {
 
   );
 };
+
+const Hi = () => {
+  return (
+    <>
+      <Text>hey</Text>
+      <Text>hey</Text>
+      <Text>hey</Text>
+      <Text>hey</Text>
+      <Text>hey</Text>
+      <Text>hey</Text>
+      <Text>hey</Text>
+      <Text>hey</Text>
+      <Text>hey</Text>
+      <Text>hey</Text>
+      <Text>hey</Text>
+      <Text>hey</Text>
+      <Text>hey</Text>
+      <Text>hey</Text>
+      <Text>hey</Text>
+    </>
+  );
+};
 export default RootNavigator;
+
