@@ -3,7 +3,7 @@
 import React, {useState, useEffect} from 'react';
 import {Text, Button, View, TextInput, StyleSheet, ImageBackground} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import * as AppleAuthentication from 'expo-apple-authentication';
+// import * as AppleAuthentication from 'expo-apple-authentication';
 import axios from 'axios';
 import { useIsFocused } from '@react-navigation/native';
 import Sound from 'react-native-sound';
@@ -164,7 +164,7 @@ const LoginModal = ({ navigation }) => {
               onPress={onSignUp}
               title="Sign Up"
             />
-            <AppleAuthentication.AppleAuthenticationButton
+            {/* <AppleAuthentication.AppleAuthenticationButton
               buttonType={AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN}
               buttonStyle={AppleAuthentication.AppleAuthenticationButtonStyle.BLACK}
               cornerRadius={5}
@@ -189,7 +189,7 @@ const LoginModal = ({ navigation }) => {
                   }
                 }
               }}
-            />
+            /> */}
           </View>
         }
         <View style={{flex: 1}}/>
