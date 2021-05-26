@@ -20,8 +20,9 @@ import {
   ViroPortal,
   ViroPortalScene,
   Viro3DObject,
-  ViroSpatialSound,
-  ViroSound,
+  ViroSpotLight
+  // ViroSpatialSound,
+  // ViroSound,
 } from '@viro-community/react-viro';
 // import Vectors from './Vectors';
 // const createReactClass = require('create-react-class');
@@ -54,134 +55,107 @@ const Portal = ({navigation, route}) => {
   const Galaxy = () => {
 
     return (
-      <ViroARScene onAnchorFound={()=> setMusicControl(true)}>
-        {/* <ViroSound rolloffModel="linear"
-          paused={musicControl}
-          muted={false}
-          source={require('./assets/music/AR-shared-space.wav')}
-          loop={true}
-          volume={1.0} /> */}
-        <ViroSpatialSound rolloffModel="linear"
-          paused={musicControl}
-          muted={false}
-          minDistance={0}
-          maxDistance={2}
-          position={[0, 0, 0]}
-          source={require('./assets/music/planeLoop.mp3')}
-          loop={true}
-          volume={1.0} />
-        <ViroSpatialSound rolloffModel="linear"
-          paused={musicControl}
-          muted={false}
-          minDistance={0}
-          maxDistance={1}
-          position={[0, 0, 0]}
-          source={require('./assets/music/solxrA1.wav')}
-          loop={true}
-          volume={1.0} />
-        <ViroSpatialSound rolloffModel="linear"
-          paused={musicControl}
-          muted={false}
-          minDistance={0}
-          maxDistance={2}
-          position={[0, 0, 1.5]}
-          source={require('./assets/music/AR-galaxyOne-mono.wav')}
-          loop={true}
-          volume={1.0} />
-        <ViroSpatialSound rolloffModel="linear"
-          paused={musicControl}
-          muted={false}
-          minDistance={0}
-          maxDistance={1}
-          position={[0, 0, 2]}
-          source={require('./assets/music/AR-galaxyTwo-mono.wav')}
-          loop={true}
-          volume={1.0} />
-        <ViroSpatialSound rolloffModel="linear"
-          paused={musicControl}
-          muted={false}
-          minDistance={0}
-          maxDistance={2}
-          position={[1.5, 0, 0]}
-          source={require('./assets/music/AR-shipOne-mono.wav')}
-          loop={true}
-          volume={1.0} />
-        <ViroSpatialSound rolloffModel="linear"
-          paused={musicControl}
-          muted={false}
-          minDistance={0}
-          maxDistance={1}
-          position={[2, 0, 0]}
-          source={require('./assets/music/AR-shipTwo-mono.wav')}
-          loop={true}
-          volume={1.0} />
-        <ViroSpatialSound rolloffModel="linear"
-          paused={musicControl}
-          muted={false}
-          minDistance={0}
-          maxDistance={2}
-          position={[-1.5, 0, 0]}
-          source={require('./assets/music/AR-earthOne-mono.wav')}
-          loop={true}
-          volume={1.0} />
-        <ViroSpatialSound rolloffModel="linear"
-          paused={musicControl}
-          muted={false}
-          minDistance={0}
-          maxDistance={1}
-          position={[-2, 0, 0]}
-          source={require('./assets/music/AR-earthTwo-mono.wav')}
-          loop={true}
-          volume={1.0} />
-        <ViroAmbientLight color="#ffffff" intensity={200} />
-        <ViroPortalScene passable={true} dragType="FixedDistance" onDrag={() => {}}>
+      <ViroARScene>
+        <ViroPortalScene
+          passable={true}
+          dragType="FixedDistance"
+          onDrag={() => {}}>
+          <ViroAmbientLight color={'#aaaaaa'} influenceBitMask={1} />
+          <ViroSpotLight
+            innerAngle={5}
+            outerAngle={90}
+            direction={[0, -1, -0.2]}
+            position={[0, 3, 1]}
+            color="#aaaaaa"
+            castsShadow={true}
+          />
           {/* front view */}
-          <ViroPortal position={[0, 0, -1]} scale={[.1, .1, .1]} opacity={1}>
-            <Viro3DObject source={require('./assets/portal_ship.vrx')}
-              type="VRX"/>
+          <ViroPortal position={[0, 0, -1]} scale={[0.1, 0.1, 0.1]} opacity={1}>
+            <Viro3DObject
+              source={require('./assets/portal_ship.vrx')}
+              resources={[
+                require('./assets/portal_ship_diffuse.png'),
+                require('./assets/portal_ship_normal.png'),
+                require('./assets/portal_ship_specular.png'),
+              ]}
+              type="VRX"
+            />
           </ViroPortal>
           <Viro360Image source={require('./assets/atacoma_desert4k.tiff')} />
         </ViroPortalScene>
-        <ViroPortalScene passable={true} dragType="FixedDistance" onDrag={() => {}}>
+        <ViroPortalScene
+          passable={true}
+          dragType="FixedDistance"
+          onDrag={() => {}}>
           {/* back view */}
-          <ViroPortal position={[0, 0, 1]} scale={[.1, .1, .1]} rotation={[0, 180, 0]} opacity={1}>
-            <Viro3DObject source={require('./assets/portal_ring.obj')}
-              resources={[require('./assets/portal_ring.png')]}
-              type="OBJ"/>
+          <ViroPortal
+            position={[0, 0, 1]}
+            scale={[0.1, 0.1, 0.1]}
+            rotation={[0, 180, 0]}
+            opacity={1}>
+            <Viro3DObject
+              source={require('./assets/portal_ship.vrx')}
+              resources={[
+                require('./assets/portal_ship_diffuse.png'),
+                require('./assets/portal_ship_normal.png'),
+                require('./assets/portal_ship_specular.png'),
+                require('./assets/portal_entry.png'),
+              ]}
+              type="VRX"
+            />
           </ViroPortal>
           <Viro360Image source={require('./assets/milky_way.jpeg')} />
         </ViroPortalScene>
-        <ViroPortalScene passable={true} dragType="FixedDistance" onDrag={() => {}}>
-          <ViroPortal position={[1, 0, 0]} scale={[.1, .1, .1]} rotation={[0, 270, 0]} opacity={1}>
-            <Viro3DObject source={require('./assets/portal_wood_frame.vrx')}
-              // resources={[require('./assets/portal_ship_diffuse.png'),
-              //   require('./assets/portal_ship_normal.png'),
-              //   require('./assets/portal_ship_specular.png')]}
-              type="VRX"/>
+        <ViroPortalScene
+          passable={true}
+          dragType="FixedDistance"
+          onDrag={() => {}}>
+          <ViroPortal
+            position={[1, 0, 0]}
+            scale={[0.1, 0.1, 0.1]}
+            rotation={[0, 270, 0]}
+            opacity={1}>
+            {/* right hand side view */}
+            <Viro3DObject
+              source={require('./assets/portal_ship.vrx')}
+              resources={[
+                require('./assets/portal_ship_diffuse.png'),
+                require('./assets/portal_ship_normal.png'),
+                require('./assets/portal_ship_specular.png'),
+                require('./assets/portal_entry.png'),
+              ]}
+              type="VRX"
+            />
           </ViroPortal>
           <Viro360Image source={require('./assets/space_shuttle360.png')} />
         </ViroPortalScene>
-        {/* <ViroPortalScene passable={true} dragType="FixedDistance" onDrag={() => {}}>
-          <ViroPortal position={[-1, 0, 0]} scale={[.1, .1, .1]} rotation={[0, 90, 0]} opacity={1}>
-            <Viro3DObject source={require('./assets/portal_ship.vrx')}
-              resources={[require('./assets/portal_ship_diffuse.png'),
+        <ViroPortalScene
+          passable={true}
+          dragType="FixedDistance"
+          onDrag={() => {}}>
+          {/* left hand side view */}
+          <ViroPortal
+            position={[-1, 0, 0]}
+            scale={[0.1, 0.1, 0.1]}
+            rotation={[0, 90, 0]}
+            opacity={1}>
+            <Viro3DObject
+              source={require('./assets/portal_ship.vrx')}
+              resources={[
+                require('./assets/portal_ship_diffuse.png'),
                 require('./assets/portal_ship_normal.png'),
-                require('./assets/portal_ship_specular.png')]}
-              type="VRX"/>
+                require('./assets/portal_ship_specular.png'),
+                require('./assets/portal_entry.png'),
+              ]}
+              type="VRX"
+            />
           </ViroPortal>
           <Viro360Image source={require('./assets/earth_moon.jpeg')} />
-        </ViroPortalScene> */}
-        {/* <View>
-          <TouchableOpacity style={styles.img} onPress={()=> switcher()}>
-            <Image
-              style={styles.button}
-              source={require('./assets/controls/play.png')}
-            />
-          </TouchableOpacity>
-        </View> */}
+        </ViroPortalScene>
       </ViroARScene>
     );
   };
+
 
   return (
     <>
