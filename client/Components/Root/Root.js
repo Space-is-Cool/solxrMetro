@@ -28,8 +28,8 @@ const RootNavigator = () => {
   }, []);
 
   const getNasa = () => {
-    axios.get(`https://api.nasa.gov/planetary/apod?api_key=${NASA_KEY}`)
-    // axios.get('https://api.nasa.gov/planetary/apod?api_key=gZClpAd2dIP9dwXkbP5wMsqVMfT1ek5YMnEo7kep')
+    // axios.get(`https://api.nasa.gov/planetary/apod?api_key=${NASA_KEY}`)
+    axios.get('https://api.nasa.gov/planetary/apod?api_key=gZClpAd2dIP9dwXkbP5wMsqVMfT1ek5YMnEo7kep')
       .then(({data}) => {
         setIoTD(data);
       });
