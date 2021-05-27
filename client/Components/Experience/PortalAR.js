@@ -2,21 +2,15 @@
 /* eslint-disable no-unused-vars */
 'use strict';
 
-import React, { Component, useState, useEffect, View, TouchableOpacity, Image, StyleSheet} from 'react';
-import { useIsFocused } from '@react-navigation/native';
+import React, { useState } from 'react';
 
 // import {StyleSheet} from 'react-native';
 
 import {
-  ViroSceneNavigator,
-  ViroScene,
-  ViroMaterials,
   ViroARScene,
   ViroAmbientLight,
-  Viro360Video,
   ViroARSceneNavigator,
   Viro360Image,
-  ViroUtils,
   ViroPortal,
   ViroPortalScene,
   Viro3DObject,
@@ -70,18 +64,22 @@ const Portal = ({navigation, route}) => {
             castsShadow={true}
           />
           {/* front view */}
-          <ViroPortal position={[0, 0, -1]} scale={[0.1, 0.1, 0.1]} opacity={1}>
+          <ViroPortal 
+            position={[0, 0, -1]} 
+            scale={[0.1, 0.1, 0.1]} 
+          >
             <Viro3DObject
-              source={require('./assets/portal_ship.vrx')}
+              source={require('./assets/portals/wood_frame/portal_wood_frame.vrx')}
               resources={[
-                require('./assets/portal_ship_diffuse.png'),
-                require('./assets/portal_ship_normal.png'),
-                require('./assets/portal_ship_specular.png'),
+                require('./assets/portals/wood_frame/portal_wood_frame_diffuse.png'),
+                require('./assets/portals/wood_frame/portal_wood_frame_normal.png'),
+                require('./assets/portals/wood_frame/portal_wood_frame_specular.png'),
               ]}
               type="VRX"
+              opacity={.5}
             />
           </ViroPortal>
-          <Viro360Image source={require('./assets/atacoma_desert4k.tiff')} />
+          <Viro360Image source={require('./assets/places/atacoma_desert4k.tiff')} />
         </ViroPortalScene>
         <ViroPortalScene
           passable={true}
@@ -92,19 +90,19 @@ const Portal = ({navigation, route}) => {
             position={[0, 0, 1]}
             scale={[0.1, 0.1, 0.1]}
             rotation={[0, 180, 0]}
-            opacity={1}>
+          >
             <Viro3DObject
-              source={require('./assets/portal_ship.vrx')}
+              source={require('./assets/portals/wood_frame/portal_wood_frame.vrx')}
               resources={[
-                require('./assets/portal_ship_diffuse.png'),
-                require('./assets/portal_ship_normal.png'),
-                require('./assets/portal_ship_specular.png'),
-                require('./assets/portal_entry.png'),
+                require('./assets/portals/wood_frame/portal_wood_frame_diffuse.png'),
+                require('./assets/portals/wood_frame/portal_wood_frame_normal.png'),
+                require('./assets/portals/wood_frame/portal_wood_frame_specular.png'),
               ]}
               type="VRX"
+              opacity={.5}
             />
           </ViroPortal>
-          <Viro360Image source={require('./assets/milky_way.jpeg')} />
+          <Viro360Image source={require('./assets/places/milky_way.jpeg')} />
         </ViroPortalScene>
         <ViroPortalScene
           passable={true}
@@ -114,20 +112,20 @@ const Portal = ({navigation, route}) => {
             position={[1, 0, 0]}
             scale={[0.1, 0.1, 0.1]}
             rotation={[0, 270, 0]}
-            opacity={1}>
+          >
             {/* right hand side view */}
             <Viro3DObject
-              source={require('./assets/portal_ship.vrx')}
+              source={require('./assets/portals/wood_frame/portal_wood_frame.vrx')}
               resources={[
-                require('./assets/portal_ship_diffuse.png'),
-                require('./assets/portal_ship_normal.png'),
-                require('./assets/portal_ship_specular.png'),
-                require('./assets/portal_entry.png'),
+                require('./assets/portals/wood_frame/portal_wood_frame_diffuse.png'),
+                require('./assets/portals/wood_frame/portal_wood_frame_normal.png'),
+                require('./assets/portals/wood_frame/portal_wood_frame_specular.png'),
               ]}
               type="VRX"
+              opacity={.5}
             />
           </ViroPortal>
-          <Viro360Image source={require('./assets/space_shuttle360.png')} />
+          <Viro360Image source={require('./assets/places/space_shuttle360.png')} />
         </ViroPortalScene>
         <ViroPortalScene
           passable={true}
@@ -138,19 +136,19 @@ const Portal = ({navigation, route}) => {
             position={[-1, 0, 0]}
             scale={[0.1, 0.1, 0.1]}
             rotation={[0, 90, 0]}
-            opacity={1}>
+          >
             <Viro3DObject
-              source={require('./assets/portal_ship.vrx')}
+              source={require('./assets/portals/wood_frame/portal_wood_frame.vrx')}
               resources={[
-                require('./assets/portal_ship_diffuse.png'),
-                require('./assets/portal_ship_normal.png'),
-                require('./assets/portal_ship_specular.png'),
-                require('./assets/portal_entry.png'),
+                require('./assets/portals/wood_frame/portal_wood_frame_diffuse.png'),
+                require('./assets/portals/wood_frame/portal_wood_frame_normal.png'),
+                require('./assets/portals/wood_frame/portal_wood_frame_specular.png'),
               ]}
               type="VRX"
+              opacity={.5}
             />
           </ViroPortal>
-          <Viro360Image source={require('./assets/earth_moon.jpeg')} />
+          <Viro360Image source={require('./assets/places/earth_moon.jpeg')} />
         </ViroPortalScene>
       </ViroARScene>
     );
