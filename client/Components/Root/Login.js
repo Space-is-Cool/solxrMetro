@@ -10,6 +10,11 @@ import Sound from 'react-native-sound';
 import {sound1} from './soundOne.js';
 import {sound2} from './soundTwo';
 import { MusicContext } from './Context';
+import { AppleButton } from '@invertase/react-native-apple-authentication';
+import { appleAuth } from '@invertase/react-native-apple-authentication';
+
+
+
 
 
 const LoginModal = ({ navigation }) => {
@@ -45,29 +50,36 @@ const LoginModal = ({ navigation }) => {
       });
   };
 
-  const onAppleSignIn = () => {
-    axios.post('http://solxrapp.com/users/login',
-      {username: 'Spacelover2', password: 'password'})
-      .then(({data}) => {
-        if (data === 'invalid password') {
-          setPrompt(data);
-        } else {
-          if (data.music === null) {
-            data.music = true;
-          }
-          if (data.theme === null) {
-            data.theme = true;
-          }
-          setSignedIn(true);
-          setUser(data);
-          storeUser(data);
-          onChangeUsername('');
-          onChangePassword('');
-        }
-      })
-      .catch(() => {
-        setPrompt('Invalid username');
-      });
+  const onAppleButtonPress = async () => {
+
+    const appleAuthRequestResponse = await appleAuth.performRequest({
+      requestedOperation: appleAuth.Operation.LOGIN,
+      requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME],
+    });
+
+    console.log(appleAuthRequestResponse);
+    // axios.post('http://solxrapp.com/users/login',
+    //   {username: 'Spacelover2', password: 'password'})
+    //   .then(({data}) => {
+    //     if (data === 'invalid password') {
+    //       setPrompt(data);
+    //     } else {
+    //       if (data.music === null) {
+    //         data.music = true;
+    //       }
+    //       if (data.theme === null) {
+    //         data.theme = true;
+    //       }
+    //       setSignedIn(true);
+    //       setUser(data);
+    //       storeUser(data);
+    //       onChangeUsername('');
+    //       onChangePassword('');
+    //     }
+    //   })
+    //   .catch(() => {
+    //     setPrompt('Invalid username');
+    //   });
   };
 
   const onSignUp = () => {
@@ -138,6 +150,15 @@ const LoginModal = ({ navigation }) => {
             <Text></Text>
             <Button onPress={() => { navigation.navigate('index'); playMusic(music); }} title="Enter" />
             <Text></Text>
+            <AppleButton
+              buttonStyle={AppleButton.Style.WHITE}
+              buttonType={AppleButton.Type.SIGN_IN}
+              style={{
+                width: 160, // You must specify a width
+                height: 45, // You must specify a height
+              }}
+              onPress={() => onAppleButtonPress()}
+            />
           </View>
           : 
           <View style={styles.container}>

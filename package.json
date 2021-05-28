@@ -10,6 +10,7 @@
         "db": "node server/db/seed.js"
     },
     "dependencies": {
+        "@invertase/react-native-apple-authentication": "^2.1.2",
         "@react-native-async-storage/async-storage": "^1.15.4",
         "@react-native-community/masked-view": "0.1.10",
         "@react-navigation/bottom-tabs": "^5.11.10",
@@ -22,7 +23,6 @@
         "astronomy-engine": "^2.0.4",
         "augmented-ui": "^2.0.0",
         "axios": "^0.21.1",
-        "dotenv": "^8.2.0",
         "expo": "~41.0.1",
         "expo-apple-authentication": "^3.1.0",
         "expo-cli": "^4.4.3",

@@ -8,7 +8,7 @@ import {IotdContext, MusicContext, FontContext, MusicChoiceContext } from './Con
 import axios from 'axios';
 import BottomTab from './RootBottomTab';
 import LoginModal from './Login';
-import {NASA_KEY} from '@env';
+// import {NASA_KEY} from '@env';
 
 
 const AppNavigation = createStackNavigator();
