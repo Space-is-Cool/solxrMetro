@@ -20,22 +20,6 @@
 		4140674D600CE5BCF68A2D04 /* libPods-myviroapp-myviroappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D07AA03E59E4DEC9F0A1013 /* libPods-myviroapp-myviroappTests.a */; };
 		830A4F19577286EBDB7B1E79 /* libPods-myviroapp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F2829DFB89A0DF12D556F00 /* libPods-myviroapp-tvOS.a */; };
 		C45EF73B0C6F742C46E4C107 /* libPods-myviroapp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B811DF5DDC3DE8901AB67A45 /* libPods-myviroapp-tvOSTests.a */; };
-		D740E4301CE44E8B82F0435C /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6527F88837B24295AB38E4B2 /* AntDesign.ttf */; };
-		7693927E3D2B4C48870EE04C /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BA53E25D6694020B0D60507 /* Entypo.ttf */; };
-		455A36CF31F84648B2BD57F3 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F83C2240A26E4F3FB5576A05 /* EvilIcons.ttf */; };
-		B4B7747347274B02A605D48B /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77D2BC28FA6F4330A07E0C2D /* Feather.ttf */; };
-		B90933CB0BC8457E96808F74 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7846EBBA9E745319B976AC2 /* FontAwesome.ttf */; };
-		50EEFDD6E05F476EBC519AFF /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D2F43EAC0A349C485D47810 /* FontAwesome5_Brands.ttf */; };
-		B5B786F2FD5A442485E5EA5C /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F34F461E7374562919C0907 /* FontAwesome5_Regular.ttf */; };
-		22C15FB0CA3542268AFA7CBD /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C90BE9AD57E48B29DBF6A7C /* FontAwesome5_Solid.ttf */; };
-		7B2653D3CA3840A0A5E0E60B /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33E4A206E5F6495586FCAF06 /* Fontisto.ttf */; };
-		E791FCF6FAA3484AADC12FFE /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B40537F95B24A28A8A91C18 /* Foundation.ttf */; };
-		43615FBC31FA47589DC37771 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A20BC1159DE14E5BB6E26C0A /* Ionicons.ttf */; };
-		A2BEF766F0F44969B78F525F /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8658A7069A9F46F58D767470 /* MaterialCommunityIcons.ttf */; };
-		06E3F34B6F8A47BE9AFF8EA5 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 46C7654F8D704741B21C97E8 /* MaterialIcons.ttf */; };
-		B16A8BF48B5F40DC93FE6ADE /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8DF227FE97264AACA18E46FF /* Octicons.ttf */; };
-		1B5E43D7D74049EC987A7455 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC1C64EDF36B4278B09E6F32 /* SimpleLineIcons.ttf */; };
-		77F1DCAEC7AF4DAC9A92D247 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D100EEB3F4164CABA27FC8F1 /* Zocial.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -353,7 +337,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = 9Q2Z8XNFLD;
+						DevelopmentTeam = 2DTB89Q9FX;
 						LastSwiftMigration = 1120;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -782,7 +766,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = myviroapp/myviroapp.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9Q2Z8XNFLD;
+				DEVELOPMENT_TEAM = 2DTB89Q9FX;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = myviroapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -807,7 +791,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = myviroapp/myviroapp.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9Q2Z8XNFLD;
+				DEVELOPMENT_TEAM = 2DTB89Q9FX;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = myviroapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
