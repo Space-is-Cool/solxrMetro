@@ -89,7 +89,7 @@ const PlanetSelector = ({navigation, route}) => {
             visible = {planet.rings}
             position={[0, 0, 0]}
             rotation={[90, 0, 0]}
-            source={require('./assets/saturn_rings_black2.png')}
+            source={require('./assets/planets/saturn_rings_black2.png')}
           />
           <ViroImage
             height={scale * 2.4}
@@ -97,7 +97,7 @@ const PlanetSelector = ({navigation, route}) => {
             visible = {planet.rings}
             position={[0, 0, 0]}
             rotation={[270, 0, 0]}
-            source={require('./assets/saturn_rings_black2.png')}
+            source={require('./assets/planets/saturn_rings_black2.png')}
           />
         </ViroARPlaneSelector>
       </ViroARScene>
@@ -106,34 +106,34 @@ const PlanetSelector = ({navigation, route}) => {
 
   ViroMaterials.createMaterials({
     sun: { shininess: 2.0,
-      diffuseTexture: require('./assets/2k_sun.jpeg')
+      diffuseTexture: require('./assets/planets/2k_sun.jpeg')
     },
     mercury: { shininess: 2.0,
-      diffuseTexture: require('./assets/2k_mercury.jpeg')
+      diffuseTexture: require('./assets/planets/2k_mercury.jpeg')
     },
     venus: { shininess: 2.0,
-      diffuseTexture: require('./assets/8k_venus.jpeg')
+      diffuseTexture: require('./assets/planets/8k_venus.jpeg')
     },
     earth: { shininess: 2.0,
-      diffuseTexture: require('./assets/2k_earth.jpeg')
+      diffuseTexture: require('./assets/planets/2k_earth.jpeg')
     },
     moon: { shininess: 2.0,
-      diffuseTexture: require('./assets/2k_moon.jpeg')
+      diffuseTexture: require('./assets/planets/2k_moon.jpeg')
     },
     mars: { shininess: 2.0,
-      diffuseTexture: require('./assets/8k_mars.jpeg')
+      diffuseTexture: require('./assets/planets/8k_mars.jpeg')
     },
     jupiter: { shininess: 2.0,
-      diffuseTexture: require('./assets/2k_jupiter.jpeg')
+      diffuseTexture: require('./assets/planets/2k_jupiter.jpeg')
     },
     saturn: { shininess: 2.0,
-      diffuseTexture: require('./assets/2k_saturn.jpeg')
+      diffuseTexture: require('./assets/planets/2k_saturn.jpeg')
     },
     uranus: { shininess: 2.0,
-      diffuseTexture: require('./assets/2k_uranus.jpeg')
+      diffuseTexture: require('./assets/planets/2k_uranus.jpeg')
     },
     neptune: { shininess: 2.0,
-      diffuseTexture: require('./assets/2k_neptune.jpeg')
+      diffuseTexture: require('./assets/planets/2k_neptune.jpeg')
     }
   });
   

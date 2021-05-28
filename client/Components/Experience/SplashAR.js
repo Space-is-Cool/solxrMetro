@@ -12,6 +12,7 @@ import IconA from 'react-native-vector-icons/Ionicons';
 import LUInfoModal from './LUInfoModal';
 import PCInfoModal from './PCInfoModal';
 import PortalInfoModal from './PortalInfoModal';
+// import TestPortal from './test/portal1';
 
 
 const SplashAR = ({ navigation }) => {
@@ -90,6 +91,15 @@ const SplashAR = ({ navigation }) => {
                   />
                 </TouchableOpacity>
               </View>
+              {/* <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
+                <Button
+                  onPress={() => {
+                    setRendering(true);
+                    setTimeout(() => navigation.navigate('TestPortal'), 10);
+                  }}
+                  title="Test Portal"
+                />
+              </View> */}
             </View>
             <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center' }}>
               {rendering && (
@@ -121,6 +131,7 @@ const ARExperiences = ({navigation}) => {
       <ARStack.Screen name='PCInfoModal' component={PCInfoModal} />
       <ARStack.Screen name='LUInfoModal' component={LUInfoModal} />
       <ARStack.Screen name='PortalInfoModal' component={PortalInfoModal} />
+      {/* <ARStack.Screen name='TestPortal' component={TestPortal} /> */}
       <ARStack.Screen name='PlanetSwitcher' component={PlanetSwitcher} />
       <ARStack.Screen name='LookUp' component={LookUpAR} />
       <ARStack.Screen name='Portal' component={PortalAR} />
