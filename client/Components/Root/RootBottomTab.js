@@ -1,10 +1,8 @@
 /* eslint-disable react/no-children-prop */
 import React from 'react';
+import { Text, Image, StyleSheet } from 'react-native';
 // import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import IconA from 'react-native-vector-icons/Ionicons';
-import IconB from 'react-native-vector-icons/FontAwesome5';
-import IconC from 'react-native-vector-icons/FontAwesome';
 
 import HomeTopTab from '../Home/HomeTopTab';
 import LearnScreenTab from '../Learn/LearnScreenTab';
@@ -27,39 +25,48 @@ const BottomTab = () => {
         name="Home"
         children={HomeTopTab}
         options={{
-          tabBarIcon: () => <IconA name="earth" size={25} color="#fff" />
+          tabBarIcon: () => <Image source={require('./assets/earthIcon.png')} style={styles.icon}/>
         }}
       />
       <AppBottomNavigator.Screen
         name="Learn"
         children={LearnScreenTab}
         options={{
-          tabBarIcon: () => <IconA name="planet" size={25} color="#fff" />
+          tabBarIcon: () => <Image source={require('./assets/planetIcon.png')} style={styles.icon}/>
+
         }}
       />
       <AppBottomNavigator.Screen
         name="Experience"
         children={ARScreen}
         options={{
-          tabBarIcon: () => <IconB name="space-shuttle" size={25} color="#fff" />
+          tabBarIcon: () => <Image source={require('./assets/shuttleIcon.png')} style={styles.icon}/>
         }}
       />
       <AppBottomNavigator.Screen
         name="Events"
         component={EventsScreen}
         options={{
-          tabBarIcon: () => <IconC name="wpexplorer" size={25} color="#fff" />
+          tabBarIcon: () => <Image source={require('./assets/teleIcon.png')} style={styles.icon}/>
+
         }}
       />
       <AppBottomNavigator.Screen
         name="Settings"
         component={SettingsScreen}
         options={{
-          tabBarIcon: () => <IconB name="user-astronaut" size={25} color="#fff" />,
+          tabBarIcon: () => <Image source={require('./assets/astronautIcon.png')} style={styles.icon}/>
         }}
       />
     </AppBottomNavigator.Navigator>
   );
 };
+
+const styles = StyleSheet.create({
+  icon: {
+    width: '90%',
+    height: '90%'
+  }
+});
   
 export default BottomTab;

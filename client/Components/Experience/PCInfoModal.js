@@ -1,6 +1,5 @@
-import React, {useState, useEffect, createContext} from 'react';
+import React from 'react';
 import { Button, View, Text, StyleSheet, ImageBackground} from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
 
 const PCInfoModal = ({ navigation }) => (
   <>

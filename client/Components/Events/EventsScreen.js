@@ -5,7 +5,7 @@ import { View, Text, ScrollView, StyleSheet, ImageBackground, Image } from 'reac
 import { useIsFocused } from '@react-navigation/native';
 import moment from 'moment';
 import Swiper from 'react-native-swiper/src';
-import { IotdContext, FontContext } from '../Root/Context';
+import { FontContext } from '../Root/Context';
 
 import eventsData from './eventsData.js';
 
@@ -39,7 +39,6 @@ const EventsByMonth = (Font) => {
     const nameOfMonth = moment(month[0].uid.slice(0, 6), 'YYYYMM').format('MMMM');
     return <ImageBackground
       style={styles.image}
-      // source={{uri: url}}>
       key={Math.random()}
       source={require('./assets/starfield.png')}>
       <Text style={{...Font, ...styles.header}}>{nameOfMonth} Astronomy Calendar</Text>
@@ -48,10 +47,6 @@ const EventsByMonth = (Font) => {
         <List month={month} Font={Font}/>
       </ScrollView>
     </ImageBackground>;
-    // );
-    // }
-    // }
-    // </IotdContext.Consumer>
   });
 };
 
@@ -102,12 +97,6 @@ export default Events;
 
 const styles = StyleSheet.create({
   mainTwo: {
-    // backgroundColor: 'rgba(0, 0, 0, 0.8)',
-    // paddingTop: '5%',
-    // borderBottomColor: 'white',
-    // borderBottomWidth: 3,
-
-
   },
   header: {
     textAlign: 'center',
@@ -138,8 +127,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     fontFamily: 'Baskerville',
-    // backgroundColor: 'rgba(0, 0, 0, 0.7)',
-
   },
   text: {
     fontSize: 14,

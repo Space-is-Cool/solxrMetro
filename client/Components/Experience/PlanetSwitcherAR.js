@@ -3,7 +3,6 @@
 'use strict';
 
 import React, { Component, useState } from 'react';
-import Sound from 'react-native-sound';
 
 import {
   ViroARScene,
@@ -21,13 +20,12 @@ import {
   ViroCamera
 } from '@viro-community/react-viro';
 
-
 const PlanetSelector = ({navigation, route}) => {
 
   const PlanetSwitcher = () => {
 
     const bodies = [
-      {rings: false, position: 0, name: 'sun', radius: 25/*109.2*/},
+      {rings: false, position: 0, name: 'sun', radius: 25},
       {rings: false, position: 1, name: 'mercury', radius: 0.38},
       {rings: false, position: 2, name: 'venus', radius: 0.9499},
       {rings: false, position: 3, name: 'earth', radius: 1},
@@ -39,11 +37,6 @@ const PlanetSelector = ({navigation, route}) => {
       {rings: false, position: 9, name: 'neptune', radius: 3.865},
     ];
 
-    
-    // const [panA, setPanA] = useState(0);
-    // const [panB, setPanB] = useState(0);
-    // const [panC, setPanC] = useState(0);
-    // const [panD, setPanD] = useState(0);
     const [planet, setPlanet] = useState(bodies[0]);
 
     const changePlanet = () => {
@@ -52,56 +45,6 @@ const PlanetSelector = ({navigation, route}) => {
         ? bodies[0]
         : bodies[planet.position + 1]);
     };
-
-    const desert = new Sound(require('./assets/music/AR-desertOne-mono.wav'),
-      (error, sound) => {
-        if (error) {
-          alert('error' + error.message);
-          return;
-        } else {
-          desert.play();
-          desert.setNumberOfLoops(-1);
-        }
-      });
-
-    const ship = new Sound(require('./assets/music/AR-shipTwo-mono.wav'),
-      (error, sound) => {
-        if (error) {
-          alert('error' + error.message);
-          return;
-        } else {
-          ship.play();
-          ship.setNumberOfLoops(-1);
-        }
-      });
-
-
-
-    //****orbit functionality******
-    // const [orbitX, setOrbitX] = useState(0);
-    // const [orbitZ, setOrbitZ] = useState(0);
-    // const xValues = [0];
-    // const zValues = [0];
-
-    // const circle = (radius, steps) => {
-    //   for (let i = 0; i < steps; i++) {
-    //     xValues[i] = (radius * Math.cos(2 * Math.PI * i / steps));
-    //     zValues[i] = (radius * Math.sin(2 * Math.PI * i / steps));
-    //   }
-    // };
-    // circle(1, 2000);
-    // console.log(xValues);
-    // let index = 0;
-
-
-    // const animate = () => {
-    //   index += 1;
-    //   setOrbitX(xValues[index]);
-    //   setOrbitZ(zValues[index]);
-    //   if (index === 1999) {
-    //     index = 0;
-    //   }
-    // };
 
     const [scale, setScale] = useState(1);
 
@@ -115,62 +58,26 @@ const PlanetSelector = ({navigation, route}) => {
       }
     };
 
-    const onCameraTransformUpdate = (({rotation, position, forward, up}) => {
-      const xPan = forward[0];
-      const zPan = forward[2];
-      desert.setPan(xPan);
-      ship.setPan(zPan);
-      console.log(xPan, zPan);
-    });
-    
     return (
-      <ViroARScene
-        onPinch={onPinch}
-        // onCameraTransformUpdate={({rotation, position, forward, up}) => console.log(rotation)}
-        onCameraTransformUpdate={onCameraTransformUpdate}
-
-
-      >
+      <ViroARScene onPinch={onPinch}>
         <ViroAmbientLight color="#ffffff" intensity={200}/>
         <ViroSpotLight innerAngle={5} outerAngle={90} direction={[0, -1, -.2]}
           position={[0, 3, 1]} color="#ffffff" castsShadow={true} />
         <ViroAmbientLight color={'#aaaaaa'} />
         <ViroSpotLight innerAngle={5} outerAngle={90} direction={[0, -1, -.2]} position={[0, 3, 1]} color="#ffffff" castsShadow={true} />
         <ViroARPlaneSelector>
-          {/* <ViroSpatialSound rolloffModel="linear"
-            paused={false}
-            muted={false}
-            minDistance={0}
-            maxDistance={2}
-            position={[0, 1, 0]}
-            source={require('./assets/audio/solxrA1.mp3')}
-            loop={true}
-            volume={1.0} /> */}
           <ViroNode scale={[scale, scale, scale]}>
-            {/* <ViroButton
-              source={require('./assets/icon.png')}
-              gazeSource={require('./assets/icon.png')}
-              tapSource={require('./assets/icon.png')}
-              position={[0, -3, 0]}
-              height={1}
-              width={1}
-              onClick={changePlanet}/> */}
             <ViroSphere
-              // onSwipe={() => setInterval(animate, 10)}
               heightSegmentCount={50}
               widthSegmentCount={50}
-              // radius={scale * planet.radius / 50 + 0.4}
               radius={planet.radius / 50 + 0.4}
               animation={{name: 'loopRotate', run: true, loop: true}} 
-              // position={[orbitX * 3, 1, orbitZ * 3]}
               position={[0, 0, 0]}
               materials={planet.name}
               onClick={changePlanet}
-              // rotation={[45, 0, 0]}
-              // onPinch={wow}
+              onPinch={onPinch}
             />
           </ViroNode>
-
           <ViroImage
             height={scale * 2.4}
             width={scale * 2.4}
@@ -203,7 +110,7 @@ const PlanetSelector = ({navigation, route}) => {
       diffuseTexture: require('./assets/planets/8k_venus.jpeg')
     },
     earth: { shininess: 2.0,
-      diffuseTexture: require('./assets/planets/2k_earth.jpeg')
+      diffuseTexture: require('./assets/planets/2k_earth.png')
     },
     moon: { shininess: 2.0,
       diffuseTexture: require('./assets/planets/2k_moon.jpeg')

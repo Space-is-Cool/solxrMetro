@@ -50,7 +50,7 @@ const LookUp = ({navigation, route}) => {
     
   
     const bodies = [
-      {position: 0, name: 'sun', radius: 12 /*109.2*/},
+      {position: 0, name: 'sun', radius: 12 },
       {position: 1, name: 'mercury', radius: 0.38},
       {position: 2, name: 'venus', radius: 0.9499},
       {position: 3, name: 'earth', radius: 1},
@@ -65,11 +65,7 @@ const LookUp = ({navigation, route}) => {
     return (
       <ViroARScene
         onPinch={onPinch}
-
-
-        // onCameraTransformUpdate={({rotation}) => console.log(rotation)}
       >
-        {/* <ViroOrbitCamera position={[0, 0, 0]} focalPoint={[0, 0, -10]} active={true} /> */}
         <ViroAmbientLight color="#ffffff" intensity={200}/>
         <ViroSpotLight innerAngle={5} outerAngle={90} direction={[0, -1, -.2]}
           position={[0, 3, 1]} color="#ffffff" castsShadow={true} />
@@ -83,27 +79,15 @@ const LookUp = ({navigation, route}) => {
               widthSegmentCount={segments}
               onPinch={onPinchPlanet}
               radius={bodies[0].radius / 100 + 0.04}
-              // radius={0.1}
-              // radius={0.1}
-              // animation={{name: 'loopRotate', run: true, loop: true}} 
-              // position={[0, 1, 0]}
               position={Vectors('Sun')}
               materials={'sun'}
-              // onClick={() => setSize(size - 0.01)}
-
             />
             <ViroSphere
               heightSegmentCount={segments}
               widthSegmentCount={segments}
               onPinch={onPinchPlanet}
               radius={bodies[1].radius / 100 + 0.04}
-              // radius={0.1}
-              // radius={0.1}
-              // animation={{name: 'loopRotate', run: true, loop: true}} 
-              // position={[0.013 * scale, 1, 0]}
               position={Vectors('Mercury')}
-
-              // onClick={() => setSize(size + 0.2)}
               materials={'mercury'}
             />
             <ViroSphere
@@ -111,10 +95,6 @@ const LookUp = ({navigation, route}) => {
               widthSegmentCount={segments}
               onPinch={onPinchPlanet}
               radius={bodies[2].radius / 100 + 0.04}
-              // radius={0.1}
-              // radius={0.1}
-              // animation={{name: 'loopRotate', run: true, loop: true}} 
-              // position={[0.0241 * scale, 1, 0]}
               position={Vectors('Venus')}
               materials={'venus'}
             />
@@ -123,10 +103,6 @@ const LookUp = ({navigation, route}) => {
               widthSegmentCount={segments}
               onPinch={onPinchPlanet}
               radius={bodies[3].radius / 100 + 0.04}
-              // radius={0.1}
-              // radius={0.1}
-              // animation={{name: 'loopRotate', run: true, loop: true}} 
-              // position={[0.033 * scale, 1, 0]}
               position={Vectors('Earth')}
               materials={'earth'}
             />
@@ -134,10 +110,6 @@ const LookUp = ({navigation, route}) => {
               heightSegmentCount={segments}
               widthSegmentCount={segments}
               radius={bodies[4].radius / 100 + 0.04}
-              // radius={0.1}
-              // radius={0.1}
-              // animation={{name: 'loopRotate', run: true, loop: true}} 
-              // position={[0.03 * scale, 1, 0.3]}
               position={Vectors('Moon')}
               materials={'moon'}
             />
@@ -145,10 +117,6 @@ const LookUp = ({navigation, route}) => {
               heightSegmentCount={segments}
               widthSegmentCount={segments}
               radius={bodies[5].radius / 100 + 0.04}
-              // radius={0.1}
-              // radius={0.1}
-              // animation={{name: 'loopRotate', run: true, loop: true}} 
-              // position={[0.0508 * scale, 1, 0]}
               position={Vectors('Mars')}
               materials={'mars'}
             />
@@ -156,10 +124,6 @@ const LookUp = ({navigation, route}) => {
               heightSegmentCount={segments}
               widthSegmentCount={segments}
               radius={bodies[6].radius / 100 + 0.04}
-              // radius={0.1}
-              // radius={0.1}
-              // animation={{name: 'loopRotate', run: true, loop: true}} 
-              // position={[0.1734 * scale, 1, 0]}
               position={Vectors('Jupiter')}
               materials={'jupiter'}
             />
@@ -167,14 +131,9 @@ const LookUp = ({navigation, route}) => {
               heightSegmentCount={segments}
               widthSegmentCount={segments}
               radius={bodies[7].radius / 100 + 0.04}
-              // radius={0.1}
-              // radius={0.1}
-              // animation={{name: 'loopRotate', run: true, loop: true}} 
-              // position={[0.317 * scale, 1, 0]}
               position={Vectors('Saturn')}
               materials={'saturn'}
             />
-
             <ViroImage
               height={bodies[7].radius / 10 + 0.02}
               width={bodies[7].radius / 10 + 0.02}
@@ -193,10 +152,6 @@ const LookUp = ({navigation, route}) => {
               heightSegmentCount={segments}
               widthSegmentCount={segments}
               radius={bodies[8].radius / 100 + 0.04}
-              // radius={0.1}
-              // radius={0.1}
-              // animation={{name: 'loopRotate', run: true, loop: true}} 
-              // position={[0.6393 * scale, 1, 0]}
               position={Vectors('Uranus')}
               materials={'uranus'}
             />
@@ -204,60 +159,44 @@ const LookUp = ({navigation, route}) => {
               heightSegmentCount={segments}
               widthSegmentCount={segments}
               radius={bodies[9].radius / 100 + 0.04}
-              // radius={0.1}
-              // radius={0.1}
-              // animation={{name: 'loopRotate', run: true, loop: true}} 
-              // position={[1 * scale, 1, 0]}
               position={Vectors('Neptune')}
               materials={'neptune'}
             />
           </ViroNode>
-
         </ViroARPlaneSelector>
-
       </ViroARScene>
     );
   };
 
   ViroMaterials.createMaterials({
     sun: { shininess: 2.0,
-      // lightingModel: "Constant",
       diffuseTexture: require('./assets/planets/2k_sun.jpeg')
     },
     mercury: { shininess: 2.0,
-      // lightingModel: "Constant",
       diffuseTexture: require('./assets/planets/2k_mercury.jpeg')
     },
     venus: { shininess: 2.0,
-      // lightingModel: "Constant",
       diffuseTexture: require('./assets/planets/8k_venus.jpeg')
     },
     earth: { shininess: 2.0,
-      // lightingModel: "Constant",
-      diffuseTexture: require('./assets/planets/2k_earth.jpeg')
+      diffuseTexture: require('./assets/planets/2k_earth.png')
     },
     moon: { shininess: 2.0,
-      // lightingModel: "Constant",
       diffuseTexture: require('./assets/planets/2k_moon.jpeg')
     },
     mars: { shininess: 2.0,
-      // lightingModel: "Constant",
       diffuseTexture: require('./assets/planets/8k_mars.jpeg')
     },
     jupiter: { shininess: 2.0,
-      // lightingModel: "Constant",
       diffuseTexture: require('./assets/planets/2k_jupiter.jpeg')
     },
     saturn: { shininess: 2.0,
-      // lightingModel: "Constant",
       diffuseTexture: require('./assets/planets/2k_saturn.jpeg')
     },
     uranus: { shininess: 2.0,
-      // lightingModel: "Constant",
       diffuseTexture: require('./assets/planets/2k_uranus.jpeg')
     },
     neptune: { shininess: 2.0,
-      // lightingModel: "Constant",
       diffuseTexture: require('./assets/planets/2k_neptune.jpeg')
     }
   });

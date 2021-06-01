@@ -1,19 +1,16 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React, {useState, useEffect, createContext} from 'react';
-import { Button, View, Text, ActivityIndicator, StyleSheet, Pressable, ImageBackground } from 'react-native';
+import { Button, Image, View, Text, ActivityIndicator, StyleSheet, Pressable, ImageBackground, TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useIsFocused } from '@react-navigation/native';
 import { FontContext } from '../Root/Context';
 import PlanetSwitcher from './PlanetSwitcherAR';
 import LookUpAR from './LookUpAR';
 import PortalAR from './PortalAR';
-import IconA from 'react-native-vector-icons/Ionicons';
 import LUInfoModal from './LUInfoModal';
 import PCInfoModal from './PCInfoModal';
 import PortalInfoModal from './PortalInfoModal';
-// import TestPortal from './test/portal1';
-
 
 const SplashAR = ({ navigation }) => {
 
@@ -26,7 +23,6 @@ const SplashAR = ({ navigation }) => {
   }, [isFocused]);
 
   return (
-    
     <FontContext.Consumer>
       {({ Font }) => (
         <>
@@ -45,12 +41,14 @@ const SplashAR = ({ navigation }) => {
                     setTimeout(() => navigation.navigate('PlanetSwitcher'), 10);
                   }} title="Planet Clicker"
                 />
-                <IconA
-                  name="information-circle-outline"
-                  size={30}
-                  style={{marginLeft: '4%', color: 'white'}}
-                  onPress={() => navigation.navigate('PCInfoModal')}
-                />
+                <TouchableOpacity
+                  style={styles.icon}
+                  onPress={() => navigation.navigate('PCInfoModal')}>
+                  <Image
+                    source={require('./assets/iconI.png')}
+                    style={styles.icon}
+                  />
+                </TouchableOpacity>
               </View>
               <Text></Text>
               <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
@@ -62,12 +60,14 @@ const SplashAR = ({ navigation }) => {
                   }}
                   title="Look Up"
                 />
-                <IconA
-                  name="information-circle-outline"
-                  size={30}
-                  style={{marginLeft: '4%', color: 'white'}}
-                  onPress={() => navigation.navigate('LUInfoModal')}
-                />
+                <TouchableOpacity
+                  style={styles.icon}
+                  onPress={() => navigation.navigate('LUInfoModal')}>
+                  <Image
+                    source={require('./assets/iconI.png')}
+                    style={styles.icon}
+                  />
+                </TouchableOpacity>
               </View>
               <Text></Text>
               <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
@@ -78,22 +78,15 @@ const SplashAR = ({ navigation }) => {
                   }}
                   title="Portal"
                 />
-                <IconA
-                  name="information-circle-outline"
-                  size={30}
-                  style={{marginLeft: '4%', color: 'white'}}
-                  onPress={() => navigation.navigate('PortalInfoModal')}
-                />
+                <TouchableOpacity
+                  style={styles.icon}
+                  onPress={() => navigation.navigate('PortalInfoModal')}>
+                  <Image
+                    source={require('./assets/iconI.png')}
+                    style={styles.icon}
+                  />
+                </TouchableOpacity>
               </View>
-              {/* <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-                <Button
-                  onPress={() => {
-                    setRendering(true);
-                    setTimeout(() => navigation.navigate('TestPortal'), 10);
-                  }}
-                  title="Test Portal"
-                />
-              </View> */}
             </View>
             <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center' }}>
               {rendering && (
@@ -125,7 +118,6 @@ const ARExperiences = ({navigation}) => {
       <ARStack.Screen name='PCInfoModal' component={PCInfoModal} />
       <ARStack.Screen name='LUInfoModal' component={LUInfoModal} />
       <ARStack.Screen name='PortalInfoModal' component={PortalInfoModal} />
-      {/* <ARStack.Screen name='TestPortal' component={TestPortal} /> */}
       <ARStack.Screen name='PlanetSwitcher' component={PlanetSwitcher} />
       <ARStack.Screen name='LookUp' component={LookUpAR} />
       <ARStack.Screen name='Portal' component={PortalAR} />
@@ -195,6 +187,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: '100%'
+  },
+  icon: {
+    width: 20,
+    height: 20,
+    marginLeft: '4%'
   }
 });
 

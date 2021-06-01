@@ -10,6 +10,11 @@ import Sound from 'react-native-sound';
 import {sound1} from './soundOne.js';
 import {sound2} from './soundTwo';
 import { MusicContext } from './Context';
+import { AppleButton } from '@invertase/react-native-apple-authentication';
+import { appleAuth } from '@invertase/react-native-apple-authentication';
+
+
+
 
 
 const LoginModal = ({ navigation }) => {
@@ -45,9 +50,21 @@ const LoginModal = ({ navigation }) => {
       });
   };
 
-  const onAppleSignIn = () => {
+  const onAppleButtonPress = async () => {
+
+    const appleAuthRequestResponse = await appleAuth.performRequest({
+      requestedOperation: appleAuth.Operation.LOGIN,
+      requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME],
+    });
+
+    console.log(appleAuthRequestResponse.user);
+
+    if (username.length < 3 || password.length < 8) {
+      return setPrompt('Invalid username or password');
+    }
+
     axios.post('http://solxrapp.com/users/login',
-      {username: 'Spacelover2', password: 'password'})
+      { username, password, appleID: appleAuthRequestResponse.user })
       .then(({data}) => {
         if (data === 'invalid password') {
           setPrompt(data);
@@ -71,6 +88,9 @@ const LoginModal = ({ navigation }) => {
   };
 
   const onSignUp = () => {
+    if (username.length < 3 || password.length < 8) {
+      return setPrompt('Invalid username or password');
+    }
     axios.post('http://solxrapp.com/users/create',
       {username, password})
       .then(onSignIn)
@@ -164,32 +184,16 @@ const LoginModal = ({ navigation }) => {
               onPress={onSignUp}
               title="Sign Up"
             />
-            {/* <AppleAuthentication.AppleAuthenticationButton
-              buttonType={AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN}
-              buttonStyle={AppleAuthentication.AppleAuthenticationButtonStyle.BLACK}
-              cornerRadius={5}
-              style={{ width: 200, height: 44 }}
-              onPress={async () => {
-                try {
-                  const credential = await AppleAuthentication.signInAsync({
-                    requestedScopes: [
-                      AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
-                      AppleAuthentication.AppleAuthenticationScope.EMAIL,
-                    ],
-                  });
-                  console.log('whats the value of credneitallll', credential);
-                  onAppleSignIn();
-                } catch (e) {
-                  if (e.code === 'ERR_CANCELED') {
-                    console.err('whats e here', e);
-                    // handle that the user canceled the sign-in flow
-                  } else {
-                    console.err('was there another error?', e);
-                    // handle other errors
-                  }
-                }
+            <Text></Text>
+            <AppleButton
+              buttonStyle={AppleButton.Style.WHITE}
+              buttonType={AppleButton.Type.SIGN_IN}
+              style={{
+                width: 160,
+                height: 45
               }}
-            /> */}
+              onPress={() => onAppleButtonPress()}
+            />
           </View>
         }
         <View style={{flex: 1}}/>

@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, {useState, useEffect, createContext} from 'react';
+import React from 'react';
 import { Button, View, Text, StyleSheet, ScrollView, ImageBackground } from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
 const PortalInfoModal = ({ navigation }) => (
   <>
     <ImageBackground
