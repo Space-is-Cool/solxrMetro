@@ -58,28 +58,28 @@ const LoginModal = ({ navigation }) => {
     });
 
     console.log(appleAuthRequestResponse);
-    // axios.post('http://solxrapp.com/users/login',
-    //   {username: 'Spacelover2', password: 'password'})
-    //   .then(({data}) => {
-    //     if (data === 'invalid password') {
-    //       setPrompt(data);
-    //     } else {
-    //       if (data.music === null) {
-    //         data.music = true;
-    //       }
-    //       if (data.theme === null) {
-    //         data.theme = true;
-    //       }
-    //       setSignedIn(true);
-    //       setUser(data);
-    //       storeUser(data);
-    //       onChangeUsername('');
-    //       onChangePassword('');
-    //     }
-    //   })
-    //   .catch(() => {
-    //     setPrompt('Invalid username');
-    //   });
+    axios.post('http://solxrapp.com/users/login',
+      {username: 'Spacelover2', password: 'password'})
+      .then(({data}) => {
+        if (data === 'invalid password') {
+          setPrompt(data);
+        } else {
+          if (data.music === null) {
+            data.music = true;
+          }
+          if (data.theme === null) {
+            data.theme = true;
+          }
+          setSignedIn(true);
+          setUser(data);
+          storeUser(data);
+          onChangeUsername('');
+          onChangePassword('');
+        }
+      })
+      .catch(() => {
+        setPrompt('Invalid username');
+      });
   };
 
   const onSignUp = () => {
@@ -150,15 +150,6 @@ const LoginModal = ({ navigation }) => {
             <Text></Text>
             <Button onPress={() => { navigation.navigate('index'); playMusic(music); }} title="Enter" />
             <Text></Text>
-            <AppleButton
-              buttonStyle={AppleButton.Style.WHITE}
-              buttonType={AppleButton.Type.SIGN_IN}
-              style={{
-                width: 160, // You must specify a width
-                height: 45, // You must specify a height
-              }}
-              onPress={() => onAppleButtonPress()}
-            />
           </View>
           : 
           <View style={styles.container}>
@@ -185,32 +176,16 @@ const LoginModal = ({ navigation }) => {
               onPress={onSignUp}
               title="Sign Up"
             />
-            {/* <AppleAuthentication.AppleAuthenticationButton
-              buttonType={AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN}
-              buttonStyle={AppleAuthentication.AppleAuthenticationButtonStyle.BLACK}
-              cornerRadius={5}
-              style={{ width: 200, height: 44 }}
-              onPress={async () => {
-                try {
-                  const credential = await AppleAuthentication.signInAsync({
-                    requestedScopes: [
-                      AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
-                      AppleAuthentication.AppleAuthenticationScope.EMAIL,
-                    ],
-                  });
-                  console.log('whats the value of credneitallll', credential);
-                  onAppleSignIn();
-                } catch (e) {
-                  if (e.code === 'ERR_CANCELED') {
-                    console.err('whats e here', e);
-                    // handle that the user canceled the sign-in flow
-                  } else {
-                    console.err('was there another error?', e);
-                    // handle other errors
-                  }
-                }
+            <Text></Text>
+            <AppleButton
+              buttonStyle={AppleButton.Style.WHITE}
+              buttonType={AppleButton.Type.SIGN_IN}
+              style={{
+                width: 160,
+                height: 45
               }}
-            /> */}
+              onPress={() => onAppleButtonPress()}
+            />
           </View>
         }
         <View style={{flex: 1}}/>

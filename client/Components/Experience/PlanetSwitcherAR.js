@@ -115,7 +115,7 @@ const PlanetSelector = ({navigation, route}) => {
       diffuseTexture: require('./assets/planets/8k_venus.jpeg')
     },
     earth: { shininess: 2.0,
-      diffuseTexture: require('./assets/planets/2k_earth.jpeg')
+      diffuseTexture: require('./assets/planets/2k_earth.png')
     },
     moon: { shininess: 2.0,
       diffuseTexture: require('./assets/planets/2k_moon.jpeg')

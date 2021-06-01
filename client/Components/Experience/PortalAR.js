@@ -58,14 +58,14 @@ const Portal = ({navigation, route}) => {
 
     const zLevel = position[2];
     const xLevel = position[0];
-    zLevel > 0 && milkyOne.setVolume(zLevel);
-    zLevel > 0.4 && milkyTwo.setVolume(zLevel - 0.4);
-    zLevel < 0 && desertOne.setVolume(-zLevel);
-    zLevel < -0.4 && desertTwo.setVolume(-zLevel - 0.4);
-    xLevel > 0 && shipOne.setVolume(xLevel);
-    xLevel > 0.4 && shipTwo.setVolume(xLevel - 0.4);
-    xLevel < 0 && earthOne.setVolume(xLevel);
-    xLevel < -0.4 && earthTwo.setVolume(-xLevel - 0.4);
+    zLevel > 0 && milkyOne.setVolume(zLevel - 0.3);
+    zLevel > 0.4 && milkyTwo.setVolume(zLevel - 0.6);
+    zLevel < 0 && desertOne.setVolume(-zLevel - 0.3);
+    zLevel < -0.4 && desertTwo.setVolume(-zLevel - 0.6);
+    xLevel > 0 && shipOne.setVolume(xLevel - 0.3);
+    xLevel > 0.4 && shipTwo.setVolume(xLevel - 0.6);
+    xLevel < 0 && earthOne.setVolume(xLevel - 0.3);
+    xLevel < -0.4 && earthTwo.setVolume(-xLevel - 0.6);
   });
   const Galaxy = () => {
     return (
@@ -88,8 +88,8 @@ const Portal = ({navigation, route}) => {
           />
           {/* front view */}
           <ViroPortal 
-            position={[0, 0, -1]} 
-            scale={[0.1, 0.1, 0.1]} 
+            position={[0, 0.4, -1]} 
+            scale={[0.25, 0.3, 0.25]} 
           >
             <Viro3DObject
               source={require('./assets/portals/wood_frame/portal_wood_frame.vrx')}
@@ -110,8 +110,8 @@ const Portal = ({navigation, route}) => {
           onDrag={() => {}}>
           {/* back view */}
           <ViroPortal
-            position={[0, 0, 1]}
-            scale={[0.1, 0.1, 0.1]}
+            position={[0, 0.4, 1]}
+            scale={[0.25, 0.3, 0.25]}
             rotation={[0, 180, 0]}
           >
             <Viro3DObject
@@ -132,8 +132,8 @@ const Portal = ({navigation, route}) => {
           dragType="FixedDistance"
           onDrag={() => {}}>
           <ViroPortal
-            position={[1, 0, 0]}
-            scale={[0.1, 0.1, 0.1]}
+            position={[1, 0.4, 0]}
+            scale={[0.25, 0.3, 0.25]}
             rotation={[0, 270, 0]}
           >
             {/* right hand side view */}
@@ -156,8 +156,8 @@ const Portal = ({navigation, route}) => {
           onDrag={() => {}}>
           {/* left hand side view */}
           <ViroPortal
-            position={[-1, 0, 0]}
-            scale={[0.1, 0.1, 0.1]}
+            position={[-1, 0.4, 0]}
+            scale={[0.25, 0.3, 0.25]}
             rotation={[0, 90, 0]}
           >
             <Viro3DObject
