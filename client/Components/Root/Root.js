@@ -1,14 +1,14 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-children-prop */
 import React, { useState, useEffect } from 'react';
-import { Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import {IotdContext, MusicContext, FontContext, MusicChoiceContext } from './Context';
 import axios from 'axios';
 import BottomTab from './RootBottomTab';
 import LoginModal from './Login';
-// import {NASA_KEY} from '@env';
+import NASA_KEY from '../../../env';
+import DefaultIotd from './DefaultIotd.json';
 
 
 const AppNavigation = createStackNavigator();
@@ -28,10 +28,13 @@ const RootNavigator = () => {
   }, []);
 
   const getNasa = () => {
-    // axios.get(`https://api.nasa.gov/planetary/apod?api_key=${NASA_KEY}`)
-    axios.get('https://api.nasa.gov/planetary/apod?api_key=gZClpAd2dIP9dwXkbP5wMsqVMfT1ek5YMnEo7kep')
+    axios.get(`https://api.nasa.gov/planetary/apod?api_key=${NASA_KEY}`)
       .then(({data}) => {
-        setIoTD(data);
+        if (!data || data.media_type !== 'image') {
+          setIoTD(DefaultIotd);
+        } else {
+          setIoTD(data);
+        }
       });
   };
 
@@ -63,26 +66,5 @@ const RootNavigator = () => {
   );
 };
 
-const Hi = () => {
-  return (
-    <>
-      <Text>hey</Text>
-      <Text>hey</Text>
-      <Text>hey</Text>
-      <Text>hey</Text>
-      <Text>hey</Text>
-      <Text>hey</Text>
-      <Text>hey</Text>
-      <Text>hey</Text>
-      <Text>hey</Text>
-      <Text>hey</Text>
-      <Text>hey</Text>
-      <Text>hey</Text>
-      <Text>hey</Text>
-      <Text>hey</Text>
-      <Text>hey</Text>
-    </>
-  );
-};
 export default RootNavigator;
 

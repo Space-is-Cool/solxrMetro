@@ -25,7 +25,6 @@ const BottomTab = () => {
         name="Home"
         children={HomeTopTab}
         options={{
-          // tabBarIcon: () => <IconA name="earth" size={25} color="#fff" />
           tabBarIcon: () => <Image source={require('./assets/earthIcon.png')} style={styles.icon}/>
         }}
       />
@@ -33,7 +32,6 @@ const BottomTab = () => {
         name="Learn"
         children={LearnScreenTab}
         options={{
-          // tabBarIcon: () => <IconA name="planet" size={25} color="#fff" />
           tabBarIcon: () => <Image source={require('./assets/planetIcon.png')} style={styles.icon}/>
 
         }}
@@ -42,7 +40,6 @@ const BottomTab = () => {
         name="Experience"
         children={ARScreen}
         options={{
-          // tabBarIcon: () => <IconB name="space-shuttle" size={25} color="#fff" />
           tabBarIcon: () => <Image source={require('./assets/shuttleIcon.png')} style={styles.icon}/>
         }}
       />
@@ -50,7 +47,6 @@ const BottomTab = () => {
         name="Events"
         component={EventsScreen}
         options={{
-          // tabBarIcon: () => <IconC name="wpexplorer" size={25} color="#fff" />
           tabBarIcon: () => <Image source={require('./assets/teleIcon.png')} style={styles.icon}/>
 
         }}
@@ -59,7 +55,6 @@ const BottomTab = () => {
         name="Settings"
         component={SettingsScreen}
         options={{
-          // tabBarIcon: () => <IconB name="user-astronaut" size={25} color="#fff" />
           tabBarIcon: () => <Image source={require('./assets/astronautIcon.png')} style={styles.icon}/>
         }}
       />

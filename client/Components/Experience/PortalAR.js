@@ -3,7 +3,6 @@
 'use strict';
 import React, { Component, useState, useEffect, View, TouchableOpacity, Image, StyleSheet} from 'react';
 import { useIsFocused } from '@react-navigation/native';
-import Sound from 'react-native-sound';
 import {
   ViroARScene,
   ViroAmbientLight,
@@ -88,7 +87,7 @@ const Portal = ({navigation, route}) => {
           />
           {/* front view */}
           <ViroPortal 
-            position={[0, 0.4, -1]} 
+            position={[0, 0.3, -1]} 
             scale={[0.25, 0.3, 0.25]} 
           >
             <Viro3DObject
@@ -110,7 +109,7 @@ const Portal = ({navigation, route}) => {
           onDrag={() => {}}>
           {/* back view */}
           <ViroPortal
-            position={[0, 0.4, 1]}
+            position={[0, 0.3, 1]}
             scale={[0.25, 0.3, 0.25]}
             rotation={[0, 180, 0]}
           >
@@ -132,7 +131,7 @@ const Portal = ({navigation, route}) => {
           dragType="FixedDistance"
           onDrag={() => {}}>
           <ViroPortal
-            position={[1, 0.4, 0]}
+            position={[1, 0.3, 0]}
             scale={[0.25, 0.3, 0.25]}
             rotation={[0, 270, 0]}
           >
@@ -156,7 +155,7 @@ const Portal = ({navigation, route}) => {
           onDrag={() => {}}>
           {/* left hand side view */}
           <ViroPortal
-            position={[-1, 0.4, 0]}
+            position={[-1, 0.3, 0]}
             scale={[0.25, 0.3, 0.25]}
             rotation={[0, 90, 0]}
           >

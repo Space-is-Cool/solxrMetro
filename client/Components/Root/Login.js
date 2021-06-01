@@ -57,9 +57,14 @@ const LoginModal = ({ navigation }) => {
       requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME],
     });
 
-    console.log(appleAuthRequestResponse);
+    console.log(appleAuthRequestResponse.user);
+
+    if (username.length < 3 || password.length < 8) {
+      return setPrompt('Invalid username or password');
+    }
+
     axios.post('http://solxrapp.com/users/login',
-      {username: 'Spacelover2', password: 'password'})
+      { username, password, appleID: appleAuthRequestResponse.user })
       .then(({data}) => {
         if (data === 'invalid password') {
           setPrompt(data);
@@ -83,6 +88,9 @@ const LoginModal = ({ navigation }) => {
   };
 
   const onSignUp = () => {
+    if (username.length < 3 || password.length < 8) {
+      return setPrompt('Invalid username or password');
+    }
     axios.post('http://solxrapp.com/users/create',
       {username, password})
       .then(onSignIn)

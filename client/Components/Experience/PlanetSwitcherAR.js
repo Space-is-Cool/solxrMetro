@@ -3,7 +3,6 @@
 'use strict';
 
 import React, { Component, useState } from 'react';
-import Sound from 'react-native-sound';
 
 import {
   ViroARScene,
@@ -21,16 +20,12 @@ import {
   ViroCamera
 } from '@viro-community/react-viro';
 
-
-
 const PlanetSelector = ({navigation, route}) => {
-
-
 
   const PlanetSwitcher = () => {
 
     const bodies = [
-      {rings: false, position: 0, name: 'sun', radius: 25/*109.2*/},
+      {rings: false, position: 0, name: 'sun', radius: 25},
       {rings: false, position: 1, name: 'mercury', radius: 0.38},
       {rings: false, position: 2, name: 'venus', radius: 0.9499},
       {rings: false, position: 3, name: 'earth', radius: 1},

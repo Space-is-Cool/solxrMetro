@@ -1,7 +1,5 @@
 import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-
-// import NasaScreen from "../Components/Home/Nasa/NasaScreen";
 import NasaScreen from './Nasa/NasaScreen';
 import FavoritesScreen from './Favorites/FavoritesScreen';
 

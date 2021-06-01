@@ -5,9 +5,6 @@ import PlanetSelector from './Planets/PlanetSelector.js';
 import Timeline from './Tech/Timeline.js';
 
 const LearnScreen = ({navigation, route}) => {
-  //need to create a selective render of either the planet screen or tech screen based on what user clicks
-  //need to add onClick property to an image???
-  //how do we css the text w/ the image? should we just make an image w/ text baked in?
 
   const [view, setView] = useState('');
   const onPress = (name) => {
@@ -16,9 +13,9 @@ const LearnScreen = ({navigation, route}) => {
   const viewSwitcher = (view) => {
     { if (view === '') {
       return (<>
-        <Text>wow</Text>
-        <Text>wow</Text>
-        <Text>wow</Text>
+        <Text></Text>
+        <Text></Text>
+        <Text></Text>
         <Button
           title="Select Planets"
           onPress={() => onPress('planets')}

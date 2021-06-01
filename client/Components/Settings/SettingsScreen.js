@@ -9,8 +9,6 @@ import axios from 'axios';
 import {sound1} from '../Root/soundOne.js';
 import {sound2} from '../Root/soundTwo';
 import { Switch } from 'react-native-switch';
-import Sound from 'react-native-sound';
-import LoginModal from '../Root/Login.js';
 
 const SettingsScreen = ({navigation, route}) => {
   const [toggle, setToggle] = useState({
@@ -209,18 +207,6 @@ const SettingsScreen = ({navigation, route}) => {
                   onValueChange={() => { setMusic(!music); musicToggle(music, chooseMusic); modUser('music'); }}
                   value={toggle.music}
                 />
-                {/* <Text style={{...Font, ...styles.value}}>NASA Theme</Text>
-            <Switch
-              style={styles.switch}
-              circleActiveColor={'#9ee7ff'}
-              circleInActiveColor={'#f4f3f4'}
-              backgroundActive={'rgb(7, 40, 82)'}
-              backgroundInactive={'rgb(7, 40, 82)'}
-              switchLeftPx={5}
-              switchRightPx={5} 
-              onValueChange={() => modUser('theme')}
-              value={toggle.theme}
-            /> */}
                 <Text style={{...Font, ...styles.value}}>Sign up for Astral Emails:</Text>
                 {toggle.email ?
                   <AwesomeButton
